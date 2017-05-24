@@ -34,14 +34,24 @@
             this.signUpLabel = new MetroFramework.Controls.MetroLabel();
             this.sliderPanel = new System.Windows.Forms.Panel();
             this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
-            this.bunifuGradientPanel1 = new ns1.BunifuGradientPanel();
+            this.loginPanel = new ns1.BunifuGradientPanel();
             this.EMailLabel = new MetroFramework.Controls.MetroLabel();
             this.EMailTextBox = new MetroFramework.Controls.MetroTextBox();
             this.PasswordLabel = new MetroFramework.Controls.MetroLabel();
             this.PasswordTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.LoginButton = new System.Windows.Forms.Button();
             this.bunifuElipse2 = new ns1.BunifuElipse(this.components);
-            this.bunifuGradientPanel1.SuspendLayout();
+            this.signUpPanel = new System.Windows.Forms.Panel();
+            this.bunifuElipse3 = new ns1.BunifuElipse(this.components);
+            this.EMailLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.EMailTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.PasswordLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.PasswordTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.ConfPassLabel = new MetroFramework.Controls.MetroLabel();
+            this.ConfPassBox = new MetroFramework.Controls.MetroTextBox();
+            this.ContinueButton = new ns1.BunifuThinButton2();
+            this.LoginButton = new ns1.BunifuThinButton2();
+            this.loginPanel.SuspendLayout();
+            this.signUpPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginLabel
@@ -82,27 +92,28 @@
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
-            this.bunifuElipse1.TargetControl = this.bunifuGradientPanel1;
+            this.bunifuElipse1.TargetControl = this.loginPanel;
             // 
-            // bunifuGradientPanel1
+            // loginPanel
             // 
-            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
-            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuGradientPanel1.Controls.Add(this.LoginButton);
-            this.bunifuGradientPanel1.Controls.Add(this.PasswordTextBox);
-            this.bunifuGradientPanel1.Controls.Add(this.PasswordLabel);
-            this.bunifuGradientPanel1.Controls.Add(this.EMailTextBox);
-            this.bunifuGradientPanel1.Controls.Add(this.EMailLabel);
-            this.bunifuGradientPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.Location = new System.Drawing.Point(140, 53);
-            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
-            this.bunifuGradientPanel1.Quality = 100;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(206, 187);
-            this.bunifuGradientPanel1.TabIndex = 3;
+            this.loginPanel.BackColor = System.Drawing.Color.White;
+            this.loginPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginPanel.BackgroundImage")));
+            this.loginPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loginPanel.Controls.Add(this.LoginButton);
+            this.loginPanel.Controls.Add(this.PasswordTextBox);
+            this.loginPanel.Controls.Add(this.PasswordLabel);
+            this.loginPanel.Controls.Add(this.EMailTextBox);
+            this.loginPanel.Controls.Add(this.EMailLabel);
+            this.loginPanel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.loginPanel.GradientBottomLeft = System.Drawing.Color.White;
+            this.loginPanel.GradientBottomRight = System.Drawing.Color.White;
+            this.loginPanel.GradientTopLeft = System.Drawing.Color.White;
+            this.loginPanel.GradientTopRight = System.Drawing.Color.White;
+            this.loginPanel.Location = new System.Drawing.Point(116, 63);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Quality = 100;
+            this.loginPanel.Size = new System.Drawing.Size(206, 187);
+            this.loginPanel.TabIndex = 3;
             // 
             // EMailLabel
             // 
@@ -150,22 +161,151 @@
             this.PasswordTextBox.TabIndex = 3;
             this.PasswordTextBox.Click += new System.EventHandler(this.PasswordTextBox_Click);
             // 
-            // LoginButton
-            // 
-            this.LoginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
-            this.LoginButton.ForeColor = System.Drawing.Color.White;
-            this.LoginButton.Location = new System.Drawing.Point(79, 134);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(93, 29);
-            this.LoginButton.TabIndex = 4;
-            this.LoginButton.Text = "Login";
-            this.LoginButton.UseVisualStyleBackColor = false;
-            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
-            // 
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 5;
-            this.bunifuElipse2.TargetControl = this.LoginButton;
+            // 
+            // signUpPanel
+            // 
+            this.signUpPanel.BackColor = System.Drawing.Color.White;
+            this.signUpPanel.Controls.Add(this.ContinueButton);
+            this.signUpPanel.Controls.Add(this.ConfPassBox);
+            this.signUpPanel.Controls.Add(this.ConfPassLabel);
+            this.signUpPanel.Controls.Add(this.PasswordTextBox2);
+            this.signUpPanel.Controls.Add(this.PasswordLabel2);
+            this.signUpPanel.Controls.Add(this.EMailTextBox2);
+            this.signUpPanel.Controls.Add(this.EMailLabel2);
+            this.signUpPanel.Location = new System.Drawing.Point(282, 46);
+            this.signUpPanel.Name = "signUpPanel";
+            this.signUpPanel.Size = new System.Drawing.Size(207, 250);
+            this.signUpPanel.TabIndex = 4;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 5;
+            this.bunifuElipse3.TargetControl = this.signUpPanel;
+            // 
+            // EMailLabel2
+            // 
+            this.EMailLabel2.AutoSize = true;
+            this.EMailLabel2.CustomForeColor = true;
+            this.EMailLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.EMailLabel2.Location = new System.Drawing.Point(16, 17);
+            this.EMailLabel2.Name = "EMailLabel2";
+            this.EMailLabel2.Size = new System.Drawing.Size(47, 19);
+            this.EMailLabel2.TabIndex = 1;
+            this.EMailLabel2.Text = "E-Mail";
+            this.EMailLabel2.UseStyleColors = true;
+            // 
+            // EMailTextBox2
+            // 
+            this.EMailTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(250)))), ((int)(((byte)(254)))));
+            this.EMailTextBox2.CustomBackground = true;
+            this.EMailTextBox2.CustomForeColor = true;
+            this.EMailTextBox2.Location = new System.Drawing.Point(16, 39);
+            this.EMailTextBox2.Name = "EMailTextBox2";
+            this.EMailTextBox2.Size = new System.Drawing.Size(167, 23);
+            this.EMailTextBox2.TabIndex = 2;
+            // 
+            // PasswordLabel2
+            // 
+            this.PasswordLabel2.AutoSize = true;
+            this.PasswordLabel2.CustomForeColor = true;
+            this.PasswordLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.PasswordLabel2.Location = new System.Drawing.Point(16, 75);
+            this.PasswordLabel2.Name = "PasswordLabel2";
+            this.PasswordLabel2.Size = new System.Drawing.Size(63, 19);
+            this.PasswordLabel2.TabIndex = 3;
+            this.PasswordLabel2.Text = "Password";
+            this.PasswordLabel2.UseStyleColors = true;
+            // 
+            // PasswordTextBox2
+            // 
+            this.PasswordTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(250)))), ((int)(((byte)(254)))));
+            this.PasswordTextBox2.CustomBackground = true;
+            this.PasswordTextBox2.CustomForeColor = true;
+            this.PasswordTextBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PasswordTextBox2.Location = new System.Drawing.Point(16, 97);
+            this.PasswordTextBox2.Name = "PasswordTextBox2";
+            this.PasswordTextBox2.Size = new System.Drawing.Size(167, 23);
+            this.PasswordTextBox2.TabIndex = 4;
+            this.PasswordTextBox2.Click += new System.EventHandler(this.PasswordTextBox2_Click);
+            // 
+            // ConfPassLabel
+            // 
+            this.ConfPassLabel.AutoSize = true;
+            this.ConfPassLabel.CustomForeColor = true;
+            this.ConfPassLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.ConfPassLabel.Location = new System.Drawing.Point(16, 132);
+            this.ConfPassLabel.Name = "ConfPassLabel";
+            this.ConfPassLabel.Size = new System.Drawing.Size(115, 19);
+            this.ConfPassLabel.TabIndex = 5;
+            this.ConfPassLabel.Text = "Confirm Password";
+            this.ConfPassLabel.UseStyleColors = true;
+            // 
+            // ConfPassBox
+            // 
+            this.ConfPassBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(250)))), ((int)(((byte)(254)))));
+            this.ConfPassBox.CustomBackground = true;
+            this.ConfPassBox.CustomForeColor = true;
+            this.ConfPassBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ConfPassBox.Location = new System.Drawing.Point(16, 154);
+            this.ConfPassBox.Name = "ConfPassBox";
+            this.ConfPassBox.Size = new System.Drawing.Size(167, 23);
+            this.ConfPassBox.TabIndex = 6;
+            this.ConfPassBox.Click += new System.EventHandler(this.ConfPassBox_Click);
+            // 
+            // ContinueButton
+            // 
+            this.ContinueButton.ActiveBorderThickness = 1;
+            this.ContinueButton.ActiveCornerRadius = 20;
+            this.ContinueButton.ActiveFillColor = System.Drawing.Color.White;
+            this.ContinueButton.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.ContinueButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.ContinueButton.BackColor = System.Drawing.Color.White;
+            this.ContinueButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ContinueButton.BackgroundImage")));
+            this.ContinueButton.ButtonText = "Continue";
+            this.ContinueButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ContinueButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContinueButton.ForeColor = System.Drawing.Color.SeaGreen;
+            this.ContinueButton.IdleBorderThickness = 2;
+            this.ContinueButton.IdleCornerRadius = 20;
+            this.ContinueButton.IdleFillColor = System.Drawing.Color.White;
+            this.ContinueButton.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.ContinueButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.ContinueButton.Location = new System.Drawing.Point(72, 195);
+            this.ContinueButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ContinueButton.Name = "ContinueButton";
+            this.ContinueButton.Size = new System.Drawing.Size(121, 37);
+            this.ContinueButton.TabIndex = 7;
+            this.ContinueButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ContinueButton.Click += new System.EventHandler(this.ContinueButton_Click);
+            // 
+            // LoginButton
+            // 
+            this.LoginButton.ActiveBorderThickness = 1;
+            this.LoginButton.ActiveCornerRadius = 20;
+            this.LoginButton.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.LoginButton.ActiveForecolor = System.Drawing.Color.White;
+            this.LoginButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.LoginButton.BackColor = System.Drawing.Color.White;
+            this.LoginButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginButton.BackgroundImage")));
+            this.LoginButton.ButtonText = "Login";
+            this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LoginButton.IdleBorderThickness = 1;
+            this.LoginButton.IdleCornerRadius = 20;
+            this.LoginButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.LoginButton.IdleForecolor = System.Drawing.Color.White;
+            this.LoginButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(230)))), ((int)(((byte)(98)))));
+            this.LoginButton.Location = new System.Drawing.Point(92, 127);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(80, 42);
+            this.LoginButton.TabIndex = 8;
+            this.LoginButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // Form1
             // 
@@ -173,7 +313,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(68)))), ((int)(((byte)(101)))));
             this.ClientSize = new System.Drawing.Size(601, 363);
-            this.Controls.Add(this.bunifuGradientPanel1);
+            this.Controls.Add(this.signUpPanel);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.sliderPanel);
             this.Controls.Add(this.signUpLabel);
             this.Controls.Add(this.loginLabel);
@@ -181,8 +322,10 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.bunifuGradientPanel1.ResumeLayout(false);
-            this.bunifuGradientPanel1.PerformLayout();
+            this.loginPanel.ResumeLayout(false);
+            this.loginPanel.PerformLayout();
+            this.signUpPanel.ResumeLayout(false);
+            this.signUpPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,13 +337,22 @@
         private MetroFramework.Controls.MetroLabel signUpLabel;
         private System.Windows.Forms.Panel sliderPanel;
         private ns1.BunifuElipse bunifuElipse1;
-        private ns1.BunifuGradientPanel bunifuGradientPanel1;
+        private ns1.BunifuGradientPanel loginPanel;
         private MetroFramework.Controls.MetroLabel EMailLabel;
         private MetroFramework.Controls.MetroTextBox PasswordTextBox;
         private MetroFramework.Controls.MetroLabel PasswordLabel;
         private MetroFramework.Controls.MetroTextBox EMailTextBox;
-        private System.Windows.Forms.Button LoginButton;
         private ns1.BunifuElipse bunifuElipse2;
+        private System.Windows.Forms.Panel signUpPanel;
+        private ns1.BunifuElipse bunifuElipse3;
+        private ns1.BunifuThinButton2 LoginButton;
+        private ns1.BunifuThinButton2 ContinueButton;
+        private MetroFramework.Controls.MetroTextBox ConfPassBox;
+        private MetroFramework.Controls.MetroLabel ConfPassLabel;
+        private MetroFramework.Controls.MetroTextBox PasswordTextBox2;
+        private MetroFramework.Controls.MetroLabel PasswordLabel2;
+        private MetroFramework.Controls.MetroTextBox EMailTextBox2;
+        private MetroFramework.Controls.MetroLabel EMailLabel2;
     }
 }
 

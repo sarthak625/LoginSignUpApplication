@@ -18,6 +18,7 @@ namespace LoginSignUpApplication
             InitializeComponent();
                  
             loginLabelActive = true;
+            signUpPanel.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -63,6 +64,10 @@ namespace LoginSignUpApplication
 
                 //Set the loginLabel color to active color
                 loginLabel.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c8dfed");
+
+                //Set the loginPanel to visible and signUp panel to Invisible
+                loginPanel.Visible = true;
+                signUpPanel.Visible = false;
             }
         }
 
@@ -103,10 +108,15 @@ namespace LoginSignUpApplication
                 //Set the signUpLabel color to active color
                 signUpLabel.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c8dfed");
 
+                //Set the loginPanel to Invisible and signUp panel to visible
+                loginPanel.Visible = false;
+                signUpPanel.Visible = true;
+
             }
 
         }
 
+        //Function to check if the email format is valid or not
         bool IsValidEmail(string email)
         {
             try
@@ -133,6 +143,8 @@ namespace LoginSignUpApplication
         }
         #endregion
 
+        #region passwordTextBoxClicks
+        //Functions to enter password characters as * and alert if the Caps Lock is on 
         private void PasswordTextBox_Click(object sender, EventArgs e)
         {
             PasswordTextBox.PasswordChar = '*';
@@ -141,5 +153,39 @@ namespace LoginSignUpApplication
                 MessageBox.Show("The Caps Lock key is ON.");
             }
         }
+
+        private void PasswordTextBox2_Click(object sender, EventArgs e)
+        {
+            PasswordTextBox2.PasswordChar = '*';
+            if (Control.IsKeyLocked(Keys.CapsLock))
+            {
+                MessageBox.Show("The Caps Lock key is ON.");
+            }
+        }
+
+        private void ConfPassBox_Click(object sender, EventArgs e)
+        {
+            ConfPassBox.PasswordChar = '*';
+            if (Control.IsKeyLocked(Keys.CapsLock))
+            {
+                MessageBox.Show("The Caps Lock key is ON.");
+            }
+        }
+
+        #endregion
+
+        #region continueButton
+        private void ContinueButton_Click(object sender, EventArgs e)
+        {
+            if (!IsValidEmail(EMailTextBox2.Text))
+                MessageBox.Show("Invalid Email");
+            else if (!PasswordTextBox2.Text.Equals(ConfPassBox.Text))
+                MessageBox.Show("Password do not match");
+            else
+            {
+                Console.WriteLine("Valid");
+            }
+        }
+        #endregion
     }
 }
