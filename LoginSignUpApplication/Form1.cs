@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Windows.Forms;
 using Finisar.SQLite;
-using Firebase.Database;
+using System.Collections.Generic;
+using FireSharp.Interfaces;
+using FireSharp.Config;
+using FireSharp;
 
 namespace LoginSignUpApplication
 {
+   
     public partial class Form1 : Form
     {
         //Instance variables to keep track which state is active
@@ -17,8 +20,8 @@ namespace LoginSignUpApplication
         private SQLiteConnection sqlCon;
         private SQLiteCommand sqlCmd;
         private SQLiteDataAdapter DBAdapter;
-       
-       
+        private IFirebaseClient client;
+
         public Form1()
         {
             InitializeComponent();
@@ -209,14 +212,14 @@ namespace LoginSignUpApplication
         }
         #endregion
 
-        #region passwordTextBoxClicks
+       
         //Function to enter password characters as * 
         private void PasswordTextBox_Click(object sender, EventArgs e)
         {
             PasswordTextBox.PasswordChar = '*';
         } 
 
-        #endregion
+        
 
         #region continueButton
         //Checks if a string is a number or not
@@ -234,12 +237,12 @@ namespace LoginSignUpApplication
             }
             return result;
         }
-        private void ContinueButton_Click(object sender, EventArgs e)
+        private async void ContinueButton_Click(object sender, EventArgs e)
         {
             if ((PasswordTextBox2.Text == "") || (ConfPassBox.Text == "") || (EMailTextBox2.Text == "") || (NameTextBox.Text == ""))
                 MessageBox.Show("One or more fields are empty.");
             else if (!IsValidEmail(EMailTextBox2.Text))
-                MessageBox.Show("Invalid Email"); 
+                MessageBox.Show("Invalid Email");
             else if (!PasswordTextBox2.Text.Equals(ConfPassBox.Text))
                 MessageBox.Show("Mobile Numbers do not match");
             else if (PasswordTextBox2.Text.Length != 10 && !isNumber(PasswordTextBox2.Text))
@@ -288,26 +291,49 @@ namespace LoginSignUpApplication
                 //If submitted successfully generate successfully submitted message
                 if (succSubmitted)
                 {
+                    //Sync the data to Google Firebase
                     MessageBox.Show("You have successfully signed up!");
+                    SetDataToFirebase(EMailTextBox2.Text, PasswordTextBox2.Text);
                 }
                 else
                 {
                     MessageBox.Show("There was some problem signing you up. Please try again.");
                 }
-
-                //Sync the data to Google Firebase
-                var firebase = new FirebaseClient("");
-
-               
+                
+                //Sync data to the firebase
+                //SetDataToFirebase(EMailTextBox2.Text, PasswordTextBox2.Text);
 
             }
         }
-        #endregion
+            #endregion
+
+        //Configuration ->  Credentials and Database secret for the project
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "UlmnwGawBrQm0QavGl06eo7ENuN0mkZT1P73MG4m",
+            BasePath = "https://loginapplication-d4213.firebaseio.com/"
+        };
+
+            
+        public async void SetDataToFirebase(String email, String password)
+        {
+            //Initialize FirebaseClient with reference link
+            client = new FirebaseClient(config);
+            Dictionary<String, String> values = new Dictionary<string, string>();
+            Dictionary<String, String> values2 = new Dictionary<string, string>();
+            values.Add("EMailId", email);
+            values2.Add("Password", password);
+            
+            //Push individual responses to the firesharp database
+            var response = await client.PushAsync("FireSharp/EMailId/", values);
+            var response2 = await client.PushAsync("FireSharp/Password/", values2);
+        }
+
 
         //Database Connectivity Functions
         private void SetConnection()
         {
-            sqlCon = new SQLiteConnection("Data Source=C:\\userInfo.db;Version=3;New=True;");
+            sqlCon = new SQLiteConnection("Data Source=userInfo.db;Version=3;New=False;");
         }
 
         //Function to execute a query
@@ -320,4 +346,8 @@ namespace LoginSignUpApplication
             sqlCon.Close();
         }
     }
+
+
+    
+
 }
