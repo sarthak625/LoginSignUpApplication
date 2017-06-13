@@ -4,3 +4,8 @@ A login sign up application with db access that synchronizes every new user with
 The interface of this application is created using Windows Forms. It uses components from Metro
 Framework for UI and SQLite for database connectivity. On every sign up the user data gets stored on the local machine and an instance
 of the same is created on Google Firebase.
+To run the application, go to the bin/debug and run LoginSignUpApplication.exe. The full path to the file is :
+```
+LoginSignUpApplication/LoginSignUpApplication/bin/Debug/LoginSignUpApplication.exe
+```
+
